@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using OceansBooksWeb.Data;
-using OceansBooksWeb.Models;
+using Oceans_DataAccess.Data;
+using Oceans_Models;
 
 namespace OceansBooksWeb.Controllers
 {

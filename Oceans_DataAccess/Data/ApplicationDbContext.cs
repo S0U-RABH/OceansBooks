@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using OceansBooksWeb.Models;
+using Oceans_Models;
 
-namespace OceansBooksWeb.Data
+namespace Oceans_DataAccess.Data
 {
     public class ApplicationDbContext : DbContext
     {

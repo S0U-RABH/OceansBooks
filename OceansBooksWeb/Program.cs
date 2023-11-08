@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
-using OceansBooksWeb.Data;
+using Oceans_DataAccess.Data;
+
 
 var builder = WebApplication.CreateBuilder(args);
 

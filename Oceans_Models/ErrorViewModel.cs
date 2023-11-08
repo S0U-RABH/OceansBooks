@@ -1,4 +1,4 @@
-namespace OceansBooksWeb.Models
+namespace Oceans_Models
 {
     public class ErrorViewModel
     {
