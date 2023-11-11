@@ -1,11 +1,15 @@
 using Microsoft.EntityFrameworkCore;
 using Oceans_DataAccess.Data;
+using Oceans_DataAccess.Repository;
+using Oceans_DataAccess.Repository.IRepository;
 
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<IUnitOfWork,UnitOfWork>();
 
 // Configure DBContext connection
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -31,6 +35,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{area=Customer}/{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
