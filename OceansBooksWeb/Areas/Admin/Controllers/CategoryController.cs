@@ -1,11 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Oceans_DataAccess.Data;
 using Oceans_DataAccess.Repository.IRepository;
 using Oceans_Models;
+using Oceans_Utility;
 
 namespace OceansBooksWeb.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = SD.Role_Admin)]
+
     public class CategoryController : Controller
     {
         private readonly IUnitOfWork _unitofwork;
