@@ -15,6 +15,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 builder.Services.AddScoped<IUnitOfWork,UnitOfWork>();
 builder.Services.AddScoped<IEmailSender,EmailSender>();
+builder.Services.AddScoped<ICompanyRepository,CompanyRepository>();
 
 // Configure DBContext connection
 builder.Services.AddDbContext<ApplicationDbContext>(options =>

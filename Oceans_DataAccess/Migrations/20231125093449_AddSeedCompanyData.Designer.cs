@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Oceans_DataAccess.Data;
 
@@ -11,9 +12,11 @@ using Oceans_DataAccess.Data;
 namespace Oceans_DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231125093449_AddSeedCompanyData")]
+    partial class AddSeedCompanyData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -477,9 +480,6 @@ namespace Oceans_DataAccess.Migrations
                     b.Property<string>("City")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("CompanyID")
-                        .HasColumnType("int");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -492,8 +492,6 @@ namespace Oceans_DataAccess.Migrations
 
                     b.Property<string>("StreetAddress")
                         .HasColumnType("nvarchar(max)");
-
-                    b.HasIndex("CompanyID");
 
                     b.HasDiscriminator().HasValue("ApplicationUser");
                 });
@@ -558,15 +556,6 @@ namespace Oceans_DataAccess.Migrations
                         .IsRequired();
 
                     b.Navigation("Category");
-                });
-
-            modelBuilder.Entity("Oceans_Models.ApplicationUser", b =>
-                {
-                    b.HasOne("Oceans_Models.Company", "Company")
-                        .WithMany()
-                        .HasForeignKey("CompanyID");
-
-                    b.Navigation("Company");
                 });
 #pragma warning restore 612, 618
         }
